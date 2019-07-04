@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>{{header}}</h1>
+    {{header}}
     {{ParagraphOne}}
   </div>
 </template>         
