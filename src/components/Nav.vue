@@ -1,19 +1,19 @@
 <template>
   <div id="nav">
-    <nav>
+    <el-container>
+      <el-header>
+        <h1>{{NameofWebsite}}</h1>
+      </el-header>
       <el-menu
         :default-active="activeIndex2"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
-        background-color="#777"
+        background-color="#b3c0d1"
         text-color="black"
         font-size="1.4em"
         active-text-color="#ffd04b"
       >
-        <el-menu-item>
-          <h1>My Vue App</h1>
-        </el-menu-item>
         <el-menu-item index="1">
           <router-link :to="{ name: 'home' }">Home</router-link>
         </el-menu-item>
@@ -27,20 +27,31 @@
           <router-link :to="{ name: 'testimonials' }">Testimonials</router-link>
         </el-menu-item>
       </el-menu>
-    </nav>
-    <footer>{{Copyright}}</footer>
+
+      <el-footer>{{Copyright}}</el-footer>
+    </el-container>
   </div>
 </template>
 <script>
 export default {
   data() {
     return {
+      NameofWebsite: "My Vue App",
       Copyright: "Copyright, MIT Open lincence."
     };
   }
 };
 </script>            
 <style>
+.el-header,
+.el-footer,
+.el-menu {
+  background-color: #b3c0d1;
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
 nav {
   padding: 0px;
   bottom: 20px;

@@ -1,7 +1,17 @@
 <template>
   <div class="about">
     <h1>{{header}}</h1>
-    {{ParagraphOne}}
+    <img src="@/assets/logo.png" alt="View's logo " />
+ <el-col :span="20" 
+        <div class="grid-content bg-purple-light">{{ParagraphOne}}</div>
+      </el-col>
+    </el-row>
+       </el-row>
+      <el-col :span="24">
+        <div class="grid-content bg-purple-light">{{ParagraphOne}}</div>
+      </el-col>
+    </el-row>
+      <img src="@/assets/logo.png" alt="View's logo " />
   </div>
 </template>         
 <script>

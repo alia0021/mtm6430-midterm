@@ -5,9 +5,11 @@
         <img src="@/assets/logo.png" alt="View's logo " />
       </el-col>
       <el-col :span="12">
-        <div class="grid-content bg-purple-light">
-          <h2>{{Greeting}}</h2>
-        </div>
+        <h2>{{Greeting}}</h2>
+        <div class="grid-content bg-purple-light">{{VueDesc}}</div>
+      </el-col>
+    </el-row>
+      <el-col :span="26">
         <div class="grid-content bg-purple-light">{{VueDesc}}</div>
       </el-col>
     </el-row>
