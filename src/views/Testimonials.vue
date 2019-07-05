@@ -6,7 +6,6 @@
       {{ testimonials }}
     </li>
   </ul>
-    
     <!--v-show will only show my form if my dialogvisible is false -->
     <el-form
       v-show="!dialogVisible"
