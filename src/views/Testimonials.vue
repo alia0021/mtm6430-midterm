@@ -1,6 +1,12 @@
 <template>
   <div class="testimonials">
     <h1>Testimonials</h1>
+  <ul>
+    <li v-for="(testimonial, index) in testimonials" :key="index" @click="testimonials(index)">
+      {{ testimonials }}
+    </li>
+  </ul>
+    
     <!--v-show will only show my form if my dialogvisible is false -->
     <el-form
       v-show="!dialogVisible"
@@ -34,7 +40,17 @@
   </div>
 </template> 
 <script>
+
+import axios from 'axios'
+
 export default {
+
+  props: {
+    testimonials: {
+      type: Array,
+      required: true
+    },
+  },
   data() {
     return {
       // add my dialog info
@@ -105,6 +121,36 @@ export default {
     resetForm(formName) {
       this.$refs[formName].resetFields();
     }
+  },
+  addTestimonial(testimonials) {
+      this.testimonials.push(testimonials);
+      axios
+        .put(
+          "https://midterm-testimonials.firebaseio.com/data.json",
+          this.testimonials
+        )
+        
+        // arrow function => replaces the regular function syntax
+        .then(response => {
+          console.log(response);
+          console.log("Your data was saved status: " + response.status);
+        }) //if the put is successfull then "then" will run if not "catch" will run
+        .catch(error => {
+          console.log(error);
+        });
+    },
+created() {
+    axios
+      .get("https://midterm-testimonials.firebaseio.com/data.json")
+      .then(response => {
+        console.log(response.data);
+        if (response.data) {
+          this.testimonials = response.data;
+        }
+      })
+      .catch(error => {
+        console.log("There was an error in getting data: " + error.response);
+      });
   }
 };
 </script>
