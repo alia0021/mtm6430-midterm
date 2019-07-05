@@ -32,13 +32,21 @@
     </el-container>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
       NameofWebsite: "My Vue App",
-      Copyright: "Copyright, MIT Open lincence."
+      Copyright: "Copyright, MIT Open lincence.",
+      activeIndex: "1",
+      activeIndex2: "1"
     };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      console.log(key, keyPath);
+    }
   }
 };
 </script>            
